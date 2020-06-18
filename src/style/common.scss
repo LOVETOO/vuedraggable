@@ -1,0 +1,240 @@
+body {
+    background: #f6f6f6;
+    font-size: 13px;
+    padding: 0;
+    margin: 0;
+}
+
+.clear:after {
+    display: block;
+    content: '';
+    clear: both;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+*:focus {
+    outline: none;
+}
+
+.ellipsis {
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.iui-container {
+    width: 1130px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.site-panel {
+    background-color: #fff;
+    -webkit-box-shadow: 0 1px 3px rgba(26, 26, 26, .1);
+    box-shadow: 0 1px 3px rgba(26, 26, 26, .1);
+    border-radius: 2px;
+    padding: 0 15px;
+}
+
+.cat-bags .line-opacity {
+    border-color: rgba(245, 245, 245, .8);
+}
+
+
+
+
+// 混用
+@mixin titleInTop {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px 0 0;
+    overflow: hidden;
+    min-height: 50px;
+    margin: 0;
+    width: 100%;
+
+    .site-item {
+        width: 157px;
+    }
+}
+
+
+
+
+.group {
+    .layout-lists {
+        background-color: inherit;
+    }
+
+    .group-head {
+        cursor: move;
+        height: 30px;
+        padding-top: 5px;
+        overflow: hidden;
+        border-color: rgba(0, 0, 0, 0.03);
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+
+        h3 {
+            float: left;
+            height: 24px;
+            margin: 0;
+            font-size: 12px;
+            font-weight: 700;
+            color: #6b7386;
+            line-height: 25px;
+            position: relative;
+            border-radius: 12px;
+        }
+    }
+
+    .group-inner {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background-color: #fff;
+        padding: 0 15px 5px;
+        overflow: hidden;
+        box-sizing: border-box;
+        border: 1px solid transparent;
+        transition: box-shadow 1s cubic-bezier(0.175, 0.885, 0.32, 1);
+        transition: border-color 1s cubic-bezier(0.175, 0.885, 0.32, 1);
+
+        &:hover {
+            z-index: 99;
+            height: auto;
+            overflow: initial;
+            border-color: #0084ff;
+            background: hsla(0, 0%, 100%, .95);
+            box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+
+            .layout-lists {
+                background: transparent;
+            }
+        }
+    }
+}
+
+
+.colFour {
+    .group {
+        .group-head {
+            padding: 0;
+            height: 38px;
+
+            h3 {
+                line-height: 38px;
+                height: 38px;
+                font-size: 13px;
+            }
+        }
+    }
+}
+
+
+// 头部item
+.site-item {
+    float: left;
+    height: 44px;
+    width: 174px;
+    margin: 0 10px 10px 0;
+    box-sizing: border-box;
+    position: relative;
+
+    &:nth-child(6n) {
+        margin-right: 0;
+    }
+
+    &.sortable-ghost {
+        background: #a1a7b7;
+        border-radius: 0;
+    }
+
+    &:hover {
+        box-shadow: 0 1px 8px #ddd;
+    }
+
+    &.hover-bg:hover {
+        box-shadow: none;
+        background: rgba(241, 242, 249, .5);
+    }
+
+    a {
+        display: block;
+        width: 100%;
+        height: 100%;
+
+        h4 {
+            text-align: left;
+            color: #444d58;
+            line-height: 42px;
+            margin: 0 5px 0 40px;
+            font-size: 16px;
+            font-weight: 400;
+            position: relative;
+            transition: margin-left .5s cubic-bezier(.175, .885, .32, 1);
+        }
+    }
+}
+
+
+
+// 紧凑列表
+.layout-lists {
+    box-shadow: none;
+    box-sizing: border-box;
+    width: 735px;
+    overflow: hidden;
+    min-height: 80px;
+    margin-left: auto;
+    padding: 12px 7px 7px 13px;
+
+    .site-item {
+        margin-right: 0;
+        margin-bottom: 5px;
+        width: 178px;
+        height: 36px;
+        border-radius: 2px;
+
+        &:hover {
+            h4 {
+                color: #0084ff;
+            }
+        }
+
+        &.sortable-ghost {
+            background: #a1a7b7;
+        }
+
+        a {
+            h4 {
+                line-height: 37px;
+                margin: 0 10px 0 38px;
+            }
+        }
+    }
+
+    &.titleInTop {
+        @include titleInTop;
+    }
+
+    &.colFour {
+        @extend .titleInTop;
+        padding-top: 5px;
+
+        .site-item {
+            width: 100%;
+        }
+    }
+}
